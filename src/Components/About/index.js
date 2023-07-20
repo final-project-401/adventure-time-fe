@@ -61,7 +61,7 @@ const About = () => {
         //       <h1>About Our Team</h1>
         //       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
         //         {teamMembersContent.map((member, index) => (
-        //           <TeamMembers key={index} {...member} />
+                //   <TeamMembers key={index} {...member} />
         //         ))}
         //       </div>
         //     </div>
