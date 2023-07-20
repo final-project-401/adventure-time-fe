@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, IconButton, Link, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -29,6 +30,8 @@ const Header = () => {
                         <MenuIcon />
                     </Link>
                 </IconButton>
+
+           <NavLink to='/about'>About Test</NavLink>
 
                 <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
                     Your Adventure Starts Here!
