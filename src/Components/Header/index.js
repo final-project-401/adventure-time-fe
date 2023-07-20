@@ -61,7 +61,7 @@ const Header = () => {
                 </Link>
 
                 <Link href="/place-order">
-                    <Button className="nav-button" color="inherit" onClick={handleOpen}>Cart </Button>
+                    <Button className="nav-button" color="inherit" onClick={handleOpen}>Weather </Button>
                 </Link>
 
             </Toolbar>
