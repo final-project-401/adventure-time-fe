@@ -50,7 +50,7 @@ const teamMembersContent = [
 const About = () => {
     const TeamMembers = ({ name, imageSrc, information }) => {
       return (
-        <Card shadow="sm" padding="lg">
+        <Card shadow="md" padding="lg">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
             <Text style={{ margin: '12px' }}>{name}</Text>
@@ -61,9 +61,9 @@ const About = () => {
     };
   
     return (
-      <div>
-        <h1>About Our Team</h1>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, width: '35rem' }}>
+      <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>About Our Team</h1>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '25px' }}>
           {teamMembersContent.map((member, index) => (
             <TeamMembers key={index} {...member} />
           ))}
