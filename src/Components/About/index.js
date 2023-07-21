@@ -52,7 +52,7 @@ const About = () => {
       return (
         <Card shadow="sm" padding="lg">
           <div>
-            <Image src={imageSrc} alt={name} width={150} height={150} radius="l" />
+            <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
             <Text>{name}</Text>
             <Text>{information}</Text>
           </div>
