@@ -51,7 +51,7 @@ const About = () => {
     const TeamMembers = ({ name, imageSrc, information }) => {
       return (
         <Card shadow="sm" padding="lg">
-          <div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
             <Text>{name}</Text>
             <Text>{information}</Text>
