@@ -53,7 +53,7 @@ const About = () => {
         <Card shadow="sm" padding="lg">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
-            <Text>{name}</Text>
+            <Text style={{ margin: '12px' }}>{name}</Text>
             <Text>{information}</Text>
           </div>
         </Card>
@@ -63,7 +63,7 @@ const About = () => {
     return (
       <div>
         <h1>About Our Team</h1>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, width: '35rem' }}>
           {teamMembersContent.map((member, index) => (
             <TeamMembers key={index} {...member} />
           ))}
