@@ -30,7 +30,7 @@ const teamMembersContent = [
     {
         name: 'Tricia Sawyer',
         imageSrc: Tricia,
-        information: 'Full Stack Software Developer, furthering my knowledge through my education at DeltaV code school.'
+        information: 'Full Stack Software Developer, furthering my knowledge through my education at DeltaV Code School.'
 
     },
     {
