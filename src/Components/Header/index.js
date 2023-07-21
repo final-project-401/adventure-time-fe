@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Drawer, IconButton, Link, Toolbar, Typography } from '@mui/material';
+import { Button, Drawer, IconButton, Link, List, ListItemButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
@@ -17,7 +17,7 @@ const Header = () => {
     return (
         <>
             <Toolbar>
-                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1, textAlign: 'center', fontSize: '30px' }}>
                     Your Adventure Starts Here!
                 </Typography>
                 <IconButton
@@ -33,32 +33,37 @@ const Header = () => {
             </Toolbar>
 
             <Drawer anchor="right" open={open} onClose={handleClose}>
-                <div
-                    role="presentation"
-                    onClick={handleClose}
-                    onKeyDown={handleClose}
-                >
+                <List sx={{ width: 200 }}>
+                <ListItemButton onClick={handleClose}>
                     <Link href="/">
-                        <Button className="nav-button" color="inherit" onClick={handleOpen}>Home</Button>
+                        <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>Home</Button>
                     </Link>
+                    </ListItemButton>
 
+                    <ListItemButton onClick={handleClose}>
                     <Link href="/about">
-                        <Button className="nav-button" color="inherit" onClick={handleOpen}>About Us </Button>
+                        <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>About Us </Button>
                     </Link>
+                    </ListItemButton>
 
+                    <ListItemButton onClick={handleClose}>
                     <Link href="/sales-info">
-                        <Button className="nav-button" color="inherit" onClick={handleOpen}>Events </Button>
-
+                        <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>Events </Button>
                     </Link>
+                    </ListItemButton>
 
+                    <ListItemButton onClick={handleClose}>
                     <Link href="/contact">
-                        <Button className="nav-button" color="inherit" onClick={handleOpen}>Contact us </Button>
+                        <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>Contact us </Button>
                     </Link>
+                    </ListItemButton>
 
+                    <ListItemButton onClick={handleClose}>
                     <Link href="/place-order">
-                        <Button className="nav-button" color="inherit" onClick={handleOpen}>Weather </Button>
+                        <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>Weather </Button>
                     </Link>
-                </div>
+                    </ListItemButton>
+                </List>
             </Drawer>
         </>
     );
