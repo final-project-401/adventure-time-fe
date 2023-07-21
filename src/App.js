@@ -4,7 +4,7 @@ import About from './Components/About';
 // import EventForm from './Components/EventForm';
 import './App.css';
 
-function App () {
+const App = () => {
 
   return (
     <>
