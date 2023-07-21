@@ -62,7 +62,11 @@ const About = () => {
   
     return (
       <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ textAlign: 'center', paddingBottom: '10px' }}>About Our Team</h1>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '5rem' }}>About Us</h1>
+      <p style={{ textAlign: 'center', fontSize: '1.2rem', marginBottom: '2rem' }}>
+        Welcome to our company! We are a team of dedicated individuals passionate about providing excellent products and services.
+      </p>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '10rem' }}>About Our Team</h1>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '25px' }}>
           {teamMembersContent.map((member, index) => (
             <TeamMembers key={index} {...member} />
