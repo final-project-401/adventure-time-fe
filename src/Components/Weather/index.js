@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
-import { Box, Card, Container, Icon, Paper } from '@mui/material';
-import { LocationCity, PlaceRounded } from '@mui/icons-material';
+import {  Container,} from '@mui/material';
 import './style.css';
 import { getWeatherIcon } from './getWeatherIcon';
 
@@ -13,6 +12,7 @@ function Weather() {
   const [todaysData, setTodaysData] = useState([]);
   const [postalCode, setPostalCode] = useState('');
 
+
   useEffect(() => {
 
     const getPostalCode = async() => {
@@ -20,7 +20,6 @@ function Weather() {
       let userData = await axios.get(userUrl);
       setPostalCode(userData.data[0].zipCode)
     };
-   
 
     const getWeather = async () => {
       try {
@@ -40,9 +39,10 @@ function Weather() {
     };
 
     getPostalCode();
-    getWeather();
 
-  }, []);
+    postalCode ? getWeather() : getPostalCode();
+
+  }, [postalCode]);
 
   const formatDate = (date) => {
    if (!date) {
@@ -92,7 +92,7 @@ function Weather() {
             <p className='city'>{location}</p>
           </div>
 
-          <div className="content">
+          <div className="content" key={todaysData.date}>
             {/* Left Content */}
             <div className='main'>
               <div className=''>
