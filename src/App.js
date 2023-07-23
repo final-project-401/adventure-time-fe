@@ -1,29 +1,34 @@
 // import logo from './logo.svg';
+import Home from './Components/AdventureHome';
+import Header from './Components/Header';
+import About from './Components/About';
+import EventItem from './Components/EventItem';
+import Contact from './Components/Contact';
+// import Weather from './Components/Weather';
+import Footer from './Components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Calendar from './Components/Calendar';
 import Weather from './Components/Weather';
 
 function App() {
+
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <Weather />
-      {/* <Calendar /> */}
-    </div>
+
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/sales-info" element={<EventItem />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/place-order" element={<Weather />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
-}
+};
 
 export default App;
