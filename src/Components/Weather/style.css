@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;500&display=swap');
 
-
 .glass {
   /**/
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.11);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(7.1px);
   -webkit-backdrop-filter: blur(7.1px);
   padding: 2rem;
@@ -19,7 +18,7 @@ p{
 
 .card {
   font-family: 'Barlow Semi Condensed', sans-serif;
-  width: 50%;
+  width: 75%;
   margin: 0 auto;
   padding: 20px;
   background-image: url('https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80');
@@ -40,15 +39,20 @@ p{
 
     .content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
     }
 
-    .left {
+    .main {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+    }
+
+    .addnl {
+      width: 250px;;
+      padding: 10px 0;
     }
 
   }
@@ -100,11 +104,8 @@ p{
   }
 
   .forecastWeather {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
     margin-top: 20px;
+    
     .date{
       text-transform: uppercase;
       font-weight: 500;
