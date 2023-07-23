@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;500&display=swap');
+
+
+.glass {
+  /**/
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  padding: 2rem;
+
+}
+
+p{
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  background-image: url('https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  /* From https://css.glass */
+
+
+  .current {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+  }
+
+
+
+  .currentDate {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .city {
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .temp {
+    font-size: 3.5rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .highLow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+  .highLow p {
+    font-size: 1.2rem;
+    margin: 5px 10px;
+    padding: 0;
+
+  }
+
+  .desc {
+    font-size: 2.5rem;
+    margin: 0;
+    text-align: center;
+  }
+
+
+  .curDate {
+    font-size: 1.75rem;
+    margin: 0;
+  }
+
+  .forecastWeather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    .date{
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.1rem;
+    }
+
+    .low{
+      color: #333333;
+    }
+  }
+
+  .caps {
+    text-transform: capitalize;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin: 0;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin: 1.5rem 0;
+  }
+
+}
