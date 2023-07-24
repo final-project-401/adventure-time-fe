@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: rgba(223, 224, 223, 0.918);
+    padding: 20px;
+}
+
+.logos {
+    padding-bottom: 25px;
+}
+
+img {
+    padding: 8px;
+}
+
+.address {
+    padding-bottom: 15px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 33rem;
+    margin-bottom: 35px;
+}
+
+.phone {
+    margin-right: 30px;
+}
