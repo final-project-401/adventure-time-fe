@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../../assets/background.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex-grow: 1;
+  }
+  
+  .Header {
+    z-index: 2;
+  }
+  
+  .Footer {
+    z-index: 2;
+  }
+  
