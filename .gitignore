@@ -15,8 +15,17 @@ config.json
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
-# KDE directory preferences
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+
 .directory
+
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*

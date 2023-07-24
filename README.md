@@ -19,6 +19,10 @@ When planning an adventure like hiking you always need to use multpiple apps lik
 - `npx create-react-app <your-app-name>`
 - Push this app into blank repo
 
+## Domain Modeling
+
+![DomainModeling](./src/assets/domainModeling.png)
+
 ## Wireframe
 
-![Wireframe]()
+![Wireframe](./src/assets/wireframe-original.png)

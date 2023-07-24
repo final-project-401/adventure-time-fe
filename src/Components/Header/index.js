@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Button, IconButton, Link, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import './styling.css';
+import LoginButton from '../Auth/loginButton';
+import LogoutButton from '../Auth/logoutButton';
+import Profile from '../Auth/Profile';
 
 
 const Header = () => {
@@ -17,6 +21,10 @@ const Header = () => {
     return (
 
         <>
+        <LoginButton />
+        <Profile />
+        <LogoutButton />
+        
             <Toolbar>
                 <IconButton
                     size="large"
@@ -47,10 +55,12 @@ const Header = () => {
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Home</Button>
                 </Link>
 
-
                 <Link href="/sales-info">
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Events </Button>
 
+                </Link>
+                <Link href="/forecast">
+                    <Button className="nav-button" color="inherit" onClick={handleOpen}>Weather </Button>
                 </Link>
 
                 {/* <Link href="/contact">

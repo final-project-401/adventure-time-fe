@@ -12,12 +12,14 @@ import Calendar from './Components/Calendar';
 import Weather from './Components/Weather';
 import Activities from './Components/Activities';
 
+
 function App() {
 
   return (
 
     <>
       <BrowserRouter>
+
         <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight: '100vh'}}>
           <Header />
           <div style={{flexGrow:1}}>

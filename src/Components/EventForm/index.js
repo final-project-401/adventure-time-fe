@@ -1,8 +1,14 @@
 import React from 'react'
+import { Form } from 'react-router-dom'
 
 function EventForm() {
   return (
-    <div>EventForm</div>
+    <>
+      <Form>
+        This is the form
+
+      </Form>
+    </>
   )
 }
 

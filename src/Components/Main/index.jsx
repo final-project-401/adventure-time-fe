@@ -37,7 +37,6 @@ export default function Main() {
       console.log('Geolocation not supported');
     }
   }
-
   if (!postalCode) {
     getGeoLocation();
   }
