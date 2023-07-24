@@ -7,54 +7,74 @@ import Donna from '../../Images/Donna.png';
 import Tricia from '../../Images/Tricia.png';
 import Justin from '../../Images/Justin.png';
 import Tim from '../../Images/Tim.png';
-
+import linkedin from '../../assets/images/linkedin.png';
+import github from '../../assets/images/github.png';
 
 const teamMembersContent = [
     {
         name: 'Joshua Coffey',
         imageSrc: Josh,
-        information: 'I am a full-stack web developer attending Code Fellows. I have a passion for producing products that people love using and troubleshooting.'
+        information: 'I am a full-stack web developer attending Code Fellows. I have a passion for producing products that people love using and troubleshooting.',
+        githubLink: "https://github.com/Coff23",
+        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
     },
     {
         name: 'Kenya Womack',
         imageSrc: Kenya,
-        information: ''
-
+        information: '',
+        githubLink: "https://github.com/Coff23",
+        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
     },
     {
         name: 'Justin Mathieu',
         imageSrc: Justin,
-        information: 'Excited to begin a career in software development and build awesome things, while continuing to learn as much as possible!'
+        information: 'Excited to begin a career in software development and build awesome things, while continuing to learn as much as possible!',
+        githubLink: "https://github.com/Coff23",
+        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
 
     },
     {
         name: 'Tricia Sawyer',
         imageSrc: Tricia,
-        information: 'Full Stack Software Developer, furthering my knowledge through my education at DeltaV Code School.'
+        information: 'Full Stack Software Developer, furthering my knowledge through my education at DeltaV Code School.',
+        githubLink: "https://github.com/Coff23",
+        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
 
     },
     {
         name: 'Tim Maupin',
         imageSrc: Tim,
-        information: ''
+        information: '',
+        githubLink: "https://github.com/Coff23",
+        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
 
     },
     {
         name: 'Donna Ada',
         imageSrc: Donna,
-        information: 'Aspiring full-stack developer looking to make a difference one web application at a time || Currently learning at codefellows'
+        information: 'Full-stack developer looking to make a difference one web application at a time.',
+        githubLink: "https://github.com/donnaada",
+        linkedinLink: "https://www.linkedin.com/in/donnaada"
 
     },
 ];
 
 const About = () => {
-    const TeamMembers = ({ name, imageSrc, information }) => {
+    const TeamMembers = ({ name, imageSrc, information, githubLink, linkedinLink }) => {
       return (
         <Card shadow="md" padding="lg">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
             <Text style={{ margin: '12px' }}>{name}</Text>
             <Text>{information}</Text>
+            <div style={{ display: 'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', width:'30%'}}>
+              <a href={githubLink} target='_blank' rel='noreferrer noopener'>
+              <Image width={40}  src={github} alt={name} > </Image>
+              </a>
+              <a href={linkedinLink} target='_blank' rel='noreferrer noopener'>
+                <Image width={40} src={linkedin} alt={name} ></Image>
+              </a>
+            </div>
           </div>
         </Card>
       );
