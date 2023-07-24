@@ -21,7 +21,7 @@ const teamMembersContent = [
     {
         name: 'Kenya Womack',
         imageSrc: Kenya,
-        information: '',
+        information: 'I have a mosaic background with many different qualifications and experiences. Currently I am a licensed real estate broker in Alabama. I am in school at Code Fellows training to become a Full Stack Software Engineer.',
         githubLink: "https://github.com/Coff23",
         linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
     },
