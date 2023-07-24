@@ -5,10 +5,13 @@ import EventItem from './Components/EventItem';
 import Contact from './Components/Contact';
 // import Weather from './Components/Weather';
 import Footer from './Components/Footer';
+// import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 function App() {
+  // const location = useLocation();
+  // const isHomePage = location.pathname === '/';
 
   return (
     <>
