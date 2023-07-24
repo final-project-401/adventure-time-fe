@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     margin: 0;
     padding: 0;
@@ -15,15 +14,13 @@ body {
   
   .content {
     flex-grow: 1;
-    /* Add any additional styling for the main content here */
   }
   
-  /* Adjust the z-index of the Header and Footer components */
   .Header {
-    z-index: 2; /* Set a higher value to display the header above the content */
+    z-index: 2;
   }
   
   .Footer {
-    z-index: 2; /* Set a higher value to display the footer above the content */
+    z-index: 2;
   }
   
