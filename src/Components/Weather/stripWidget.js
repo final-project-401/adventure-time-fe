@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
-import { Container, } from '@mui/material';
-import './style.css';
+import { Container, IconButton, } from '@mui/material';
 import { getWeatherIcon } from './getWeatherIcon';
+
+import './stripWidget.css';
+import { Edit } from '@mui/icons-material';
 
 function Weather({ postcode }) {
   // const [weatherRes, setWeatherRes] = useState([]);
@@ -30,7 +32,6 @@ function Weather({ postcode }) {
         setTodaysData(weather[0].data[0]);
 
         const forecastData = [...weather[0].data];
-        forecastData.shift();
         setForecast(forecastData);
 
       } catch (error) {
@@ -85,73 +86,28 @@ function Weather({ postcode }) {
 
   return (
     <>
-      <div className='card glass'>
-        <Container className="current" key={'current'}>
-          <div className="header">
-            <p className='caps curDate'>{`${date.dayOfWeek}, ${date.todayM} ${date.todayD}`}</p>
-            <p className='city'>{location}</p>
-          </div>
-
-          <div className="content" key={todaysData.date}>
-            {/* Left Content */}
-            <div className='main'>
-              <div className=''>
-                <div style={{display: 'flex', flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
-                  <img src={getWeatherIcon(todaysData.weatherCode, todaysData.icon)} alt='icon' width={75} />
-                  <p className='temp'> {todaysData.temp}&deg; F</p>
-                </div>
-                <p className='desc'>{todaysData.description}</p>
-                <div className='highLow'>
-                  <p>High: {todaysData.high_temp}&deg; F</p>
-                  <p>Low: {todaysData.low_temp}&deg; F</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content */}
-            <div className='addnl'>
-              <div className='row'>
-                <p>UV Index</p>
-                <p>{todaysData.uvIndex} of 10</p>
-              </div>
-              <div className='row'>
-                <p>Wind</p>
-                <p>{`${todaysData.windDir} ${todaysData.windSpd}`} mph</p>
-              </div>
-              <div className='row'>
-                <p>Humidity (rh)</p>
-                <p>{todaysData.humidity}%</p>
-              </div>
-              <div className='row'>
-                <p>Pressure</p>
-                <p>{todaysData.pressure} mb</p>
-              </div>
-              <div className='row'>
-                <p>Chance of Rain</p>
-                <p>{todaysData.pop}%</p>
-              </div>
-            </div>
-          </div>
-        </Container>
         <Container className="forecastWeather" key={'forecast'}>
-          <Grid container rowSpacing={3}>
+          <div className='cardStrip glass' key={'div'}>
+
+          <Grid container columns={7} rowSpacing={3} key={'grid'}>
             {forecast.map((day) => {
               const formattedDate = day ? formatDate(day.date) : null;
               return (
-                <Grid item xs={4} key={day.id}>
+                <Grid item xs={1} key={day.id}>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
                     <p className='date'>{`${formattedDate.dayOfWeek.slice(0, 3)}, ${formattedDate.todayM.slice(0, 3)} ${formattedDate.todayD}`}</p>
                     <img src={getWeatherIcon(day.weatherCode, day.icon)} alt='icon' width={75} />
                     <p style={{ textAlign: 'center' }}>{day.description}</p>
                     <p>High: {day.high_temp}&deg; F</p>
-                    <p>Low: {day.low_temp}&deg; F</p>
+                    <p className='low'>Low: {day.low_temp}&deg; F</p>
                   </div>
                 </Grid>
               );
             })}
           </Grid>
+            <p style={{marginTop:16, textAlign:'right'}}>7-Day weather forecast for {postcode} brought to you by WeatherBit.io</p>
+         </div>
         </Container>
-      </div>
     </>
   );
 }

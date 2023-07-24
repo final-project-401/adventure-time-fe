@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;500&display=swap');
+
+* {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.glass {
+  background: rgb(212, 212, 212);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+  /* padding: 1.25rem .75rem; */
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.cardStrip {
+  padding: 15px;
+  margin: 15px;
+  width: 100%;
+}
+
+
+.forecastWeather .date {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.forecastWeather .low {
+  color: #333333;
+}

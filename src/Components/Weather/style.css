@@ -1,140 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;400;500&display=swap');
 
+
 .glass {
-  /**/
-  background: rgba(0, 0, 0, 0.11);
+  background: rgba(255,255,255, 0.5);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(7.1px);
   -webkit-backdrop-filter: blur(7.1px);
-  padding: 2rem;
-
+  padding: 1.25rem .75rem;
 }
 
-p{
+p {
   margin: 0;
   padding: 0;
 }
 
 .card {
   font-family: 'Barlow Semi Condensed', sans-serif;
-  width: 75%;
-  margin: 0 auto;
-  padding: 20px;
-  background-image: url('https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80');
+  
+  margin: 0 20px;
+  padding: 15px;
+  /* background-image: url('https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80'); */
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 25vh;
+  /* min-height: 25vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-even;
+  border-radius: 10px;
+
+}
+
+.card .current {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  /* From https://css.glass */
+  justify-content: center; 
+  /* margin-bottom: 1rem; */
+}
 
+.card .current .header {
+  text-align: center;
+}
 
-  .current {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.card .current .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-    .content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-    }
+.card .current .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
-    .main {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
+.card .current .addnl {
+  width: 250px;
+  padding: 5px 0;
+}
 
-    .addnl {
-      width: 250px;;
-      padding: 10px 0;
-    }
+.card .currentDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
+.card .city {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+}
 
+.card .temp {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+}
 
+.card .highLow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
 
-  .currentDate {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
+.card .highLow p {
+  font-size: 1rem;
+  margin: 5px 10px;
+  padding: 0;
+}
 
-  .city {
-    font-size: 3.5rem;
-    font-weight: 400;
-    margin: 0;
-  }
+.card .desc {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
 
-  .temp {
-    font-size: 3.5rem;
-    font-weight: 400;
-    margin: 0;
-  }
+.card .curDate {
+  font-size: 1.25rem;
+  margin: 0;
+}
 
-  .highLow{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-evenly;
-  }
+.card .forecastWeather {
+  width: 100%;
+  margin-top: 20px;
+}
 
-  .highLow p {
-    font-size: 1.2rem;
-    margin: 5px 10px;
-    padding: 0;
+.card .forecastWeather .date {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
 
-  }
+.card .forecastWeather .low {
+  color: #333333;
+}
 
-  .desc {
-    font-size: 2.5rem;
-    margin: 0;
-    text-align: center;
-  }
+.card .caps {
+  text-transform: capitalize;
+}
 
+.card .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
 
-  .curDate {
-    font-size: 1.75rem;
-    margin: 0;
-  }
-
-  .forecastWeather {
-    margin-top: 20px;
-    
-    .date{
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 0.1rem;
-    }
-
-    .low{
-      color: #333333;
-    }
-  }
-
-  .caps {
-    text-transform: capitalize;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
-    margin: 0;
-  }
-
-  .col {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    margin: 1.5rem 0;
-  }
-
+.card .col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 0;
 }
