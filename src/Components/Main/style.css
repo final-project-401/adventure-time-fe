@@ -1,0 +1,32 @@
+.container {
+
+  width: 90%;
+  margin: 50px auto;
+}
+
+.hero {
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.6) 100%), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGFkdmVudHVyZXxlbnwwfDB8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+}
+
+.hero h1{
+  color: #fff;
+  font-size: 5vw;
+}
+
+.locationInput{
+  display: flex;
+  flex-direction: row;
+}
+
+.stripWeather{
+  margin-top: -8%;
+}
