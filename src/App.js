@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Calendar from './Components/Calendar';
 import Weather from './Components/Weather';
+import Activities from './Components/Activities';
 
 function App() {
 
@@ -17,15 +18,20 @@ function App() {
 
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/sales-info" element={<EventItem />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/place-order" element={<Weather />} />
-        </Routes>
-        <Footer />
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight: '100vh'}}>
+          <Header />
+          <div style={{flexGrow:1}}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/activities" element={<Activities />} />
+              <Route path="/sales-info" element={<EventItem />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/place-order" element={<Weather />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
       </BrowserRouter>
     </>
   );
