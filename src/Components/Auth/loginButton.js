@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import "./style.css"
@@ -9,6 +9,7 @@ const LoginButton = () => {
 
   const handleLogin = async (email) => {
     try {
+      console.log(user);
       const response = await axios.post(`${process.env.REACT_APP_SERVER}/api/user`, {
         email: email,
       });
