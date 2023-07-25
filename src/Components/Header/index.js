@@ -55,7 +55,7 @@ const Header = () => {
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Home</Button>
                 </Link>
 
-                <Link href="/sales-info">
+                <Link href="/calendar">
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Events </Button>
 
                 </Link>
@@ -67,9 +67,9 @@ const Header = () => {
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Contact us </Button>
                 </Link> */}
 
-                <Link href="/place-order">
+                {/* <Link href="/place-order">
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>Weather </Button>
-                </Link>
+                </Link> */}
 
                 <Link href="/about">
                     <Button className="nav-button" color="inherit" onClick={handleOpen}>About Us </Button>

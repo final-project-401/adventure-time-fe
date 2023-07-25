@@ -11,7 +11,7 @@ import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
 
-function Activities() {
+function Restaurants() {
   const [postalCode, setPostalCode] = useState('');
   const [updateLocation, setUpdateLocation] = useState(false);
   const [locationInput, setLocationInput] = useState('');
@@ -50,14 +50,12 @@ function Activities() {
     getRestaurants();
   }, [postalCode]); // Call getRestaurants() when postalCode changes
 
-  console.log('restaurants>>>', restaurants);
 
   return (
     <>
       <Hero postcode={postalCode} />
       <div className='container'>
-        <h1 style={{ textAlign: 'end' }}>
-          Searching in{' '}
+          <h2>Popular restaurants near {' '}
           {updateLocation ? (
             <>
               <TextField style={{ paddingLeft: 10 }} variant="standard" size="lg" onChange={handleInputChange} value={locationInput} />
@@ -69,24 +67,23 @@ function Activities() {
             <>
               {postalCode} <IconButton onClick={updatePostalCode}><Edit /></IconButton>
             </>
-          )}
-        </h1>
-        <h2>Places to Eat</h2>
+          )}</h2>
         <Grid container spacing={2}>
           {restaurants.map((restaurant) => {
            return(
             <Grid key={restaurant.id} item xs={6} sm={4} md={3}>
-              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent:'space-between'}}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column'}}>
+                <CardMedia
+                  component="img"
+                  height="194"
+                  image={restaurant.img}
+                  alt={restaurant.name}
+                />
               <CardHeader
+                style={{flexGrow:1}}
                 action={restaurant.price}
                 title={restaurant.name}
                 subheader={`⭐️ ${restaurant.rating}`}
-              />
-              <CardMedia
-                component="img"
-                height="194"
-                image={restaurant.img}
-                alt={restaurant.name}
               />
               <CardContent>
                 <Typography variant="body2" color="text.secondary">
@@ -117,5 +114,5 @@ function Activities() {
   );
 }
 
-export default Activities;
+export default Restaurants;
 

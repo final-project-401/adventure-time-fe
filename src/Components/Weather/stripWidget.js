@@ -63,7 +63,8 @@ function Weather({ postcode }) {
     };
 
     const dateArr = date.split('-');
-    const month = parseInt(dateArr[1]);
+    let month = parseInt(dateArr[1]);
+    month -= 1;
     const day = parseInt(dateArr[2]);
     const year = parseInt(dateArr[0]);
 

@@ -1,9 +1,8 @@
 import React from 'react'
 import StripWeather from '../Weather/stripWidget';
+import Header from '../Header';
 
 export default function Hero({postcode}) {
-  console.log('postcode>>>', postcode);
-  
   
   return (
     <>
@@ -12,7 +11,7 @@ export default function Hero({postcode}) {
       </div>
       {postcode
           ? <div className='stripWeather'><StripWeather postcode={postcode}/> </div>
-          : ''
+          : <div className='stripWeather'><StripWeather postcode={'98109'}/> </div>
         }
     </>
   )
