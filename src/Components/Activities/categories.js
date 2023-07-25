@@ -79,7 +79,7 @@ const images = [
 export default function ActivityCategories({ postcode }) {
   const navigate = useNavigate();
   return (
-    <div component="section" style={{ width:'75%', margin:'4px auto 5rem' }}>
+    <div component="section" style={{ width:'85%', margin:'4px auto 5rem' }}>
       <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image) => (
           <ImageIconButton

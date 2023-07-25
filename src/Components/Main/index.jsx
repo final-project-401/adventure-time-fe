@@ -1,95 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
+import { useSelector, useDispatch } from 'react-redux';
+import { Button, IconButton, TextField } from '@mui/material';
 import { Check, Edit } from '@mui/icons-material';
 import { NearMe } from '@mui/icons-material';
-import { TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import ActivityCategories from '../Activities/categories';
-
 import Hero from '../Hero';
-
 import './style.css';
 
-// import Paper from '@mui/material/Paper';
-// import InputBase from '@mui/material/InputBase';
-// import Divider from '@mui/material/Divider';
-// import SearchIcon from '@mui/icons-material/Search';
-// import StripWeather from '../Weather/stripWidget's
+import { fetchLocation, updatePostalCode } from './actions';
 
 export default function Main() {
-
   const navigate = useNavigate();
-            
-  const [location, setLocation] = useState({});
-  const [postalCode, setPostalCode] = useState('');
-  const [shouldNavigate, setShouldNavigate] = useState(false); // New state to track navigation
+  const dispatch = useDispatch();
+  const postalCode = useSelector((state) => state.locationReducer.postalCode);
+  const requestingLocation = useSelector((state) => state.locationReducer.requestingLocation);
+
   const [updateLocation, setUpdateLocation] = useState(false);
   const [locationInput, setLocationInput] = useState('');
-  const [postalCodeInput, setPostalCodeInput] = useState(postalCode);
-  // const [route, setRoute] = useState('/');
-
-  const getGeoLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          let lat = position.coords.latitude;
-          let lon = position.coords.longitude;
-
-          setLocation({ lat, lon });
-          getPostalCode(lat, lon);
-        },
-        () => console.log('Unable to retrieve location.')
-      );
-    } else {
-      console.log('Geolocation not supported');
-    }
-  }
-  if (!postalCode) {
-    getGeoLocation();
-  }
 
   useEffect(() => {
-    if (!postalCode) {
-      getGeoLocation();
-    }
-  }, []);
+    dispatch(fetchLocation());
+  }, [dispatch]);
 
   const handleLocationClick = () => {
-    // getGeoLocation();
-    getPostalCode(location.lat, location.lon);
-    setPostalCodeInput(postalCode)
-  }
+    dispatch(fetchLocation());
+  };
 
-  async function getPostalCode(lat, lon) {
-    try {
-      let apiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
-      let dataFromAPI = await axios.get(apiUrl);
+  // const handleNavigate = () => {
+  //   navigate(`/activities?p=${postalCode}`);
+  // };
 
-      setPostalCode(dataFromAPI.data.postcode)
-    } catch (error) {
-      console.error(error || error.message)
-    }
-  }
-
-  const handleNavigate = (route) => {
-    setShouldNavigate(true);
-  }
-
-  const handleSearchClick = async (params) => {
-    setPostalCode(params);
-    console.log(postalCode);
-    handleNavigate();
-  }
-
-
-  const updatePostalCode = () => {
+  const updatePostalCodeHandler = () => {
     setUpdateLocation(true);
   };
 
   const setNewPostalCode = () => {
-    setPostalCode(locationInput);
-    setLocationInput(postalCode);
+    dispatch(updatePostalCode(locationInput));
     setUpdateLocation(false);
   };
 
@@ -97,46 +44,55 @@ export default function Main() {
     setLocationInput(event.target.value);
   };
 
-  useEffect(() => {
-    // console.log('Updated postalCode:', postalCode);
-    if (shouldNavigate && postalCode) {
-      navigate(`/activities?p=${postalCode}`);
-      setShouldNavigate(false); // Reset shouldNavigate to false after navigation
-    }
-  }, [postalCode, shouldNavigate]);
+  // useEffect(() => {
+  //   if (postalCode && !requestingLocation) {
+  //     handleNavigate();
+  //   }
+  // }, [postalCode, requestingLocation]);
 
   return (
     <>
       <div className="">
         <Hero postcode={postalCode} />
-        <div className="container">
-          <div style={{textAlign:'center'}}>
-            <h1 style={{ textAlign: 'center', marginBottom: 10 }}>Find popular events near {' '}
-              {
-                updateLocation ? (
-                  <>
-                    <TextField style={{ paddingLeft: 10 }} variant="standard" size="lg" onChange={handleInputChange} value={locationInput} />
-                    <IconButton onClick={setNewPostalCode}>
-                      <Check />
-                    </IconButton>
-                  </>
-                ) : (
-                  <>{postalCode} <IconButton onClick={updatePostalCode}><Edit /></IconButton></>
-                )
-
-              }
+        <div className="container" style={{ position: 'relative' }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ textAlign: 'center', marginBottom: 10 }}>
+              Find popular events near{' '}
+              {updateLocation ? (
+                <>
+                  <TextField
+                    style={{ paddingLeft: 10 }}
+                    variant="standard"
+                    size="lg"
+                    onChange={handleInputChange}
+                    value={locationInput}
+                  />
+                  <IconButton onClick={setNewPostalCode}>
+                    <Check />
+                  </IconButton>
+                </>
+              ) : !postalCode 
+                  ? (
+                    <>
+                    you <IconButton onClick={updatePostalCodeHandler}><Edit /></IconButton>
+                    </>
+                  ) 
+                  : (
+                      <>
+                        {postalCode} <IconButton onClick={updatePostalCodeHandler}><Edit /></IconButton>
+                      </>
+                    )}
             </h1>
 
-            <Button 
-                variant="contained"
-                onClick={() => handleLocationClick()}
-                endIcon={<NearMe fontSize='small'/>}
-                size="small"
-              >
-                Use Current Location
-              </Button>
+            <Button
+              variant="contained"
+              onClick={handleLocationClick}
+              endIcon={<NearMe fontSize="small" />}
+              size="small"
+            >
+              Use Current Location
+            </Button>
           </div>
-
         </div>
 
         <ActivityCategories postcode={postalCode} />

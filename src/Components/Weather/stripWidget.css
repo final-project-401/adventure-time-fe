@@ -3,8 +3,9 @@
 * {
   font-family: 'Barlow Semi Condensed', sans-serif;
 }
+
 .glass {
-  background: rgb(212, 212, 212);
+  background: rgb(212, 212, 212,0.95);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(7.1px);
   -webkit-backdrop-filter: blur(7.1px);
@@ -19,7 +20,7 @@ p {
 .cardStrip {
   padding: 15px;
   margin: 15px;
-  width: 100%;
+  max-width: 100%;
 }
 
 
@@ -30,4 +31,13 @@ p {
 
 .forecastWeather .low {
   color: #333333;
+}
+
+@media (max-width: 900px) {
+  .forecastWeather{
+    font-size: .7rem;
+  }
+  .hide-on-medium-down {
+    display: none;
+  }
 }

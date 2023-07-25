@@ -1,8 +1,8 @@
 .container {
-
   width: 90%;
   margin: 50px auto;
 }
+
 
 .hero {
   width: 100%;
@@ -14,12 +14,45 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
 }
 
-.hero h1{
+.hero h1 {
   color: #fff;
   font-size: 5vw;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 7vw;
+  }
+}
+
+/* Optional: Additional responsiveness for larger screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 80%;
+  }
+
+  .hero h1 {
+    font-size: 4vw;
+  }
+}
+
+/* Optional: Additional responsiveness for very small screens */
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 10vw;
+  }
 }
 
 .locationInput{
@@ -27,6 +60,9 @@
   flex-direction: row;
 }
 
-.stripWeather{
-  margin-top: -8%;
-}
+.stripWeather {
+  flex-basis: 100%; 
+  top: 0;/* Make .stripWeather take up full width on smaller screens */
+  margin-top: -10vh; /* Position .stripWeather around the 45vh area */
+ }
+

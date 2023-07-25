@@ -24,16 +24,7 @@ const Header = () => {
         <>
 
             <Toolbar className='header-toolbar'>
-            <div style={{ padding: '10px'}}>
-                <LoginButton />
-                <Profile />
-                <LogoutButton />
-            </div>
-                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-                    Adventure Time
-                </Typography>
-
-                <IconButton
+            <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
@@ -42,9 +33,19 @@ const Header = () => {
                     onClick={handleOpen}>
                     <MenuIcon sx={{ fontSize: 35 }} />
                 </IconButton>
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+                    Adventure Time
+                </Typography>
+
+
+                <div style={{ padding: '10px'}}>
+                <LoginButton />
+                <Profile />
+                <LogoutButton />
+            </div>
             </Toolbar>
 
-            <Drawer anchor="right" open={open} onClose={handleClose}>
+            <Drawer anchor="left" open={open} onClose={handleClose}>
                 <div
                     role="presentation"
                     onClick={handleClose}
@@ -58,7 +59,7 @@ const Header = () => {
                         </ListItemButton>
 
                         <ListItemButton onClick={handleClose}>
-                            <Link href="/sales-info">
+                            <Link href="/events">
                                 <Button className="nav-button" color="inherit" sx={{ fontSize: '18px', color: 'black' }}>Events </Button>
                             </Link>
                         </ListItemButton>
@@ -74,7 +75,7 @@ const Header = () => {
                 </Link> */}
 
                         <ListItemButton onClick={handleClose}>
-                            <Link href="/place-order">
+                            <Link href="/weather">
                                 <Button className="nav-button" color="inherit" sx={{ fontSize: '18px', color: 'black' }}>Weather </Button>
                             </Link>
                         </ListItemButton>

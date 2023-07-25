@@ -3,6 +3,7 @@ import Home from './Components/AdventureHome';
 import Header from './Components/Header';
 import About from './Components/About';
 import EventItem from './Components/EventItem';
+import Events from './Components/Events';
 import Contact from './Components/Contact';
 // import Weather from './Components/Weather';
 import Footer from './Components/Footer';
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <>
+    
       <BrowserRouter>
 
         <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight: '100vh'}}>
@@ -30,7 +32,7 @@ function App() {
               <Route path="/restaurants" element={<Restaurants />} />
               <Route path="/lodging" element={<Lodging />} />
               <Route path="/recreation" element={<Recreation />} />
-              <Route path="/event" element={<Calendar />} />
+              <Route path="/events" element={<Events />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/weather" element={<Weather />} />
             </Routes>

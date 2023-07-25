@@ -90,17 +90,21 @@ function Weather({ postcode }) {
         <Container className="forecastWeather" key={'forecast'}>
           <div className='cardStrip glass' key={'div'}>
 
-          <Grid container columns={7} rowSpacing={3} key={'grid'}>
+          <Grid container columns={{xs:12, sm:7}} rowSpacing={3} key={'grid'}>
             {forecast.map((day) => {
               const formattedDate = day ? formatDate(day.date) : null;
               return (
-                <Grid item xs={1} key={day.id}>
+                <Grid item xs={3} sm={1} key={day.id}>
                   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center' }}>
                     <p className='date'>{`${formattedDate.dayOfWeek.slice(0, 3)}, ${formattedDate.todayM.slice(0, 3)} ${formattedDate.todayD}`}</p>
                     <img src={getWeatherIcon(day.weatherCode, day.icon)} alt='icon' width={75} />
-                    <p style={{ textAlign: 'center' }}>{day.description}</p>
-                    <p>High: {day.high_temp}&deg; F</p>
-                    <p className='low'>Low: {day.low_temp}&deg; F</p>
+                    
+                      <p style={{ textAlign: 'center' }}>{day.description}</p>
+                    {/* Hidden on medium/small screens */}
+                    <div className="hide-on-medium-down">
+                      <p>High: {day.high_temp}&deg; F</p>
+                      <p className='low'>Low: {day.low_temp}&deg; F</p>
+                    </div>
                   </div>
                 </Grid>
               );

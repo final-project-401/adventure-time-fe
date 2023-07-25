@@ -65,7 +65,7 @@ const About = () => {
         <Card shadow="md" padding="lg">
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Image src={imageSrc} alt={name} width={120} height={120} radius="80px" />
-            <Text style={{ margin: '12px' }}>{name}</Text>
+            <Text style={{ margin: 6, fontWeight:500, fontSize:'1.25rem' }}>{name}</Text>
             <Text>{information}</Text>
             <div style={{ display: 'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', width:'30%'}}>
               <a href={githubLink} target='_blank' rel='noreferrer noopener'>
@@ -82,11 +82,11 @@ const About = () => {
   
     return (
       <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '5rem' }}>About Us</h1>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '2rem' }}>About Us</h1>
       <p style={{ textAlign: 'center', fontSize: '1.2rem', marginBottom: '2rem' }}>
         Welcome to our company! We are a team of dedicated individuals passionate about providing excellent products and services.
       </p>
-        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '10rem' }}>About Our Team</h1>
+        <h1 style={{ textAlign: 'center', paddingBottom: '10px', paddingTop: '2rem' }}>About Our Team</h1>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '25px' }}>
           {teamMembersContent.map((member, index) => (
             <TeamMembers key={index} {...member} />
