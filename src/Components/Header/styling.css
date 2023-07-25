@@ -5,3 +5,9 @@
 .menuIcon{
     color: rgb(36, 198, 87)
 };
+
+.header-toolbar {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Align items with space between them */
+    align-items: center; /* Center items vertically in the toolbar */
+  }

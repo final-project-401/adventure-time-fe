@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import "./style.css"
 
 const LoginButton = () => {
   const { loginWithRedirect, isAuthenticated, user } = useAuth0();
@@ -24,26 +25,9 @@ const LoginButton = () => {
     }
   }, [isAuthenticated, user]);
 
-  async function handleLogin(email) {
-    loginWithRedirect();
-    // try {
-    //   if (isAuthenticated && user) {
-    //     let config = {
-    //       baseUrl: 'postgres://localhost:5432/adventure-time',
-    //       url: '/api/user',
-    //       method: 'post',
-    //       data: user.email,
-    //     }
-    //     const response = await axios.post(config)
-    //     console.log(response.data);
-    //   }
-    // }
-  }
-
-
   return (
     !isAuthenticated && (
-      <button onClick={() => {
+      <button className="cool-button" onClick={() => {
         loginWithRedirect();
       }}>
         Sign in

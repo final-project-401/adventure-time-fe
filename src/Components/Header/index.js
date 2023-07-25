@@ -5,6 +5,7 @@ import './styling.css';
 import LoginButton from '../Auth/loginButton';
 import LogoutButton from '../Auth/logoutButton';
 import Profile from '../Auth/Profile';
+import { flexibleCompare } from '@fullcalendar/core/internal';
 
 
 const Header = () => {
@@ -21,11 +22,13 @@ const Header = () => {
     return (
 
         <>
-            <LoginButton />
-            <Profile />
-            <LogoutButton />
 
-            <Toolbar>
+            <Toolbar className='header-toolbar'>
+            <div style={{ padding: '10px'}}>
+                <LoginButton />
+                <Profile />
+                <LogoutButton />
+            </div>
                 <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
                     Adventure Time
                 </Typography>
