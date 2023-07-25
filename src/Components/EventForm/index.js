@@ -1,13 +1,9 @@
 // events.js (Events component)
-import React, { useState, useEffect } from 'react';
+import React, { useState  } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Button, TextField, Snackbar, Grid } from '@mui/material';
-import Alert from '@mui/material/Alert';
-import MuiAlert from '@mui/material/Alert';
+import {  Button, TextField,  Grid } from '@mui/material';
 
-function customAlert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+
 
 const EventForm = () => {
   const [name, setName] = useState('');
