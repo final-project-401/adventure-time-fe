@@ -1,12 +1,22 @@
 // events.js (Events component)
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Button, ButtonGroup, Snackbar, Grid } from '@mui/material';
+import {Card, 
+  CardContent, 
+  IconButton, 
+  Typography, 
+  Grid, 
+  CardHeader, 
+  CardActions} from '@mui/material';
 import EventForm from '../EventForm';
 import FullCalendar from '@fullcalendar/react';
 import listPlugin from '@fullcalendar/list'
-import { DeleteForever, Email } from '@mui/icons-material';
-import Hero from '../Hero';
+import { DeleteForever } from '@mui/icons-material';
+import ShareIcon from '@mui/icons-material/Share';
+// import { makeStyles } from '@mui/styles';
+
+import './style.css';
+
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -43,11 +53,7 @@ const Events = () => {
   }, [events]);
 
   console.log('calEvent>>>', calEvent);
-  
 
-  const eventCreated = () => {
-    setEventAdded(true);
-  }
 
   useEffect(() => {
     fetchEvents();
@@ -78,7 +84,9 @@ const Events = () => {
   };
   return (
     <>
-      <Hero />
+      <div className="hero2">
+        <h1>Your private events!</h1>
+      </div>
       <div className='container'>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
@@ -95,32 +103,39 @@ const Events = () => {
               events={calEvent}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <div>
+          <Grid item xs={12} sm={8}>
+            <Grid container columns={12} spacing={2}>
               {events.map((event) => (
-                <Card key={event.id}>
-                  <CardContent>
-                    <h2>{event.name}</h2>
-                    <p style={{ margin: '5px 0' }}>{event.desc}</p>
-                    <p style={{ margin: '5px 0' }}>Date: {event.date}</p>
-                    <p style={{ margin: '5px 0' }}>Travel Buddies: {event.travelBuddies}</p>
-                    <p style={{ margin: '5px 0' }}>Time: {event.time}</p>
-                    <ButtonGroup style={{ marginTop: 10 }} size="small" aria-label="small button group">
-                      <Button variant="contained" color="secondary" onClick={() => handleDelete(event.id)}>
-                        <DeleteForever fontSize="small" />
-                      </Button>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={() => handleShareByEmail(event.id, 'recipient@example.com', 'sender@example.com', 'Check out this event!')}
-                      >
-                        <Email fontSize="small" />
-                      </Button>
-                    </ButtonGroup>
-                  </CardContent>
-                </Card>
+                <Grid item xs={6} md={4} >
+                  <Card className='eCard'>
+                    <CardHeader
+                      title={event.name}
+                      className='cardHeader'
+                      style={{paddingBottom: 0}}
+                    />
+                    <CardContent style={{paddingTop:0}} className='cardContent'>
+                      <div className='subheader'>
+                        <p>{event.date} {event.time}</p>
+                        <p>{event.time}</p>
+                      </div>
+                      {event.desc
+                        ? <Typography variant="body2" color="text.secondary">
+                          {event.desc}
+                        </Typography>
+                        : ''}
+                    </CardContent>
+                    <CardActions disableSpacing className='cardActions'>
+                      <IconButton aria-label="Delete Event" onClick={() => handleDelete(event.id)}>
+                        <DeleteForever className='deleteButton' fontSize="small" />
+                      </IconButton>
+                      <IconButton aria-label="share">
+                        <ShareIcon fontSize="small" />
+                      </IconButton>
+                    </CardActions>
+                  </Card>
+                </Grid>
               ))}
-            </div>
+            </Grid>
           </Grid>
         </Grid>
 
@@ -128,5 +143,7 @@ const Events = () => {
     </>
   );
 };
+
+
 
 export default Events;
