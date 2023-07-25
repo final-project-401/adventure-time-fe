@@ -15,7 +15,7 @@ import Hero from '../Hero';
 export default function Main() {
 
   const navigate = useNavigate();
-
+            
   const [location, setLocation] = useState({});
   const [postalCode, setPostalCode] = useState('');
   const [postalCodeInput, setPostalCodeInput] = useState('');
