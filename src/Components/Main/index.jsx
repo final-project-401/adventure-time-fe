@@ -20,7 +20,7 @@ import './style.css';
 export default function Main() {
 
   const navigate = useNavigate();
-
+            
   const [location, setLocation] = useState({});
   const [postalCode, setPostalCode] = useState('');
   const [shouldNavigate, setShouldNavigate] = useState(false); // New state to track navigation

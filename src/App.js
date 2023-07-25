@@ -18,7 +18,6 @@ import Recreation from './Components/Activities/fun';
 function App() {
 
   return (
-
     <>
       <BrowserRouter>
 
