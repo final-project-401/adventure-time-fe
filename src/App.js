@@ -3,14 +3,16 @@ import Home from './Components/AdventureHome';
 import Header from './Components/Header';
 import About from './Components/About';
 import EventItem from './Components/EventItem';
-// import Contact from './Components/Contact';
+import Contact from './Components/Contact';
 // import Weather from './Components/Weather';
 import Footer from './Components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Calendar from './Components/Calendar';
 import Weather from './Components/Weather';
-import Activities from './Components/Activities';
+import Restaurants from './Components/Activities/food';
+import Lodging from './Components/Activities/lodging';
+import Recreation from './Components/Activities/fun';
 
 
 function App() {
@@ -25,9 +27,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/activities" element={<Activities />} />
-              <Route path="/sales-info" element={<EventItem />} />
-              <Route path="/place-order" element={<Weather />} />
+              <Route path="/restaurants" element={<Restaurants />} />
+              <Route path="/lodging" element={<Lodging />} />
+              <Route path="/recreation" element={<Recreation />} />
+              <Route path="/event" element={<Calendar />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/weather" element={<Weather />} />
             </Routes>
           </div>
           <Footer />

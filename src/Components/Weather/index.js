@@ -62,13 +62,13 @@ function Weather({ postcode }) {
     };
 
     const dateArr = date.split('-');
-    const month = parseInt(dateArr[1]);
-    const day = parseInt(dateArr[2]);
-    const year = parseInt(dateArr[0]);
-
+    let month = parseInt(dateArr[1]);
+    month -= 1 //month values start at 0 for January and ends at 11 for December
+    let day = parseInt(dateArr[2]);
+    let year = parseInt(dateArr[0]);
     const today = new Date(year, month, day);
+    
     const formattedDate = today.toLocaleString('en-US', options);
-
     const dayOfWeek = formattedDate.split(', ')[0];
     const todayM = formattedDate.split(' ')[1];
     const todayD = formattedDate.split(' ')[2].split(',')[0];
@@ -76,10 +76,6 @@ function Weather({ postcode }) {
 
     return { dayOfWeek, todayM, todayD, todayY };
   };
-
-  // console.log('postalCode>>>', weatherRes);
-
-
 
   const date = todaysData ? formatDate(todaysData.date) : null;
 
