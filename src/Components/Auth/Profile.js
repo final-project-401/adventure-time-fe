@@ -7,8 +7,8 @@ const Profile = () => {
   return(
     isAuthenticated && (
       <article>
-        {user?.picture && <img src={user.picture} alt={user?.name} />}
-        <h2>{user?.name}</h2>
+        {user?.picture && <img src={user.picture} alt={user?.name} style={{borderRadius:'50%'}}/>}
+        <h2 style={{marginTop:0, marginBottom:10}}>{user?.name}</h2>
       </article>
     )
   )

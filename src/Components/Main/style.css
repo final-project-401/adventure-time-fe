@@ -12,6 +12,7 @@
   background-size: cover;
   min-height: 55vh;
   display: flex;
+  font-weight: 300;
   flex-direction: column;
   justify-content: center;
   align-items: center;

@@ -1,20 +1,21 @@
 // events.js (Events component)
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import {Card, 
-  CardContent, 
-  IconButton, 
-  Typography, 
-  Grid, 
-  CardHeader, 
-  CardActions} from '@mui/material';
+import {
+  Card,
+  CardContent,
+  IconButton,
+  Typography,
+  Grid,
+  CardHeader,
+  CardActions
+} from '@mui/material';
 import EventForm from '../EventForm';
 import FullCalendar from '@fullcalendar/react';
 import listPlugin from '@fullcalendar/list'
 import { DeleteForever, Email } from '@mui/icons-material';
 import Hero from '../Hero';
 import { useAuth0 } from '@auth0/auth0-react';
-import { DeleteForever } from '@mui/icons-material';
 import ShareIcon from '@mui/icons-material/Share';
 
 import './style.css';
@@ -49,8 +50,8 @@ const Events = () => {
   useEffect(() => {
     if (events) {
       let eventData = events.map((x) => ({
-        title: x.name,
-        date: x.date,
+        title: `${x.name} @ ${x.time}`,
+        date: x.date.split('T')[0],
       }));
       setCalEvent(eventData);
     }
@@ -94,7 +95,7 @@ const Events = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
             <EventForm />
-            <h3 style={{ marginTop: 20, marginBottom: 0 }}>Events this week</h3>
+            <h3 style={{ marginTop: 10, marginBottom: 0 }}>Events this week</h3>
             <FullCalendar
               plugins={[listPlugin]}
               initialView="listWeek"
@@ -106,33 +107,35 @@ const Events = () => {
               events={calEvent}
             />
           </Grid>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={8} key={'card'}>
             <Grid container columns={12} spacing={2}>
               {events.map((event) => (
-
-                  <Card className='eCard'>
-                    <CardHeader
-                      title={event.name}
-                      className='cardHeader'
-                      style={{paddingBottom: 0}}
-                    />
-                    <CardContent style={{paddingTop:0}} className='cardContent'>
-                      <div className='subheader'>
-                        <p>{event.date} {event.time}</p>
-                        <p>{event.time}</p>
-                      </div>
-                      {event.desc
-                        ? <Typography variant="body2" color="text.secondary">
-                          {event.desc}
-                        </Typography>
-                        : ''}
-                    </CardContent>
-                    <CardActions disableSpacing className='cardActions'>
-                      <IconButton aria-label="Delete Event" onClick={() => handleDelete(event.id)}>
-                        <DeleteForever className='deleteButton' fontSize="small" />
-                      </IconButton>
-                      <IconButton aria-label="share"
-                          onClick={() => handleShareByEmail(event, user, `
+                <Grid item xs={12} sm={6} md={4} >
+                <Card className='eCard' >
+                {/* sx={{ height: '100%', display: 'flex', flexDirection: 'column', Width:300 }} */}
+                  <CardHeader
+                    title={event.name}
+                    className='cardHeader'
+                    style={{ paddingBottom: 0 }}
+                  />
+                  <CardContent style={{ paddingTop: 0 }} className='cardContent'>
+                    <div className='subheader'>
+                      <p>{event.date.split('T')[0]}</p>
+                      <p>{event.time}</p>
+                    </div>
+                    {event.desc
+                      ? <Typography variant="body2" color="text.secondary">
+                        {event.desc}
+                      </Typography>
+                      : ''}
+                    {/* <p>Things to bring: {event.packingList}</p> */}
+                  </CardContent>
+                  <CardActions disableSpacing className='cardActions'>
+                    <IconButton aria-label="Delete Event" onClick={() => handleDelete(event.id)}>
+                      <DeleteForever className='deleteButton' fontSize="small" />
+                    </IconButton>
+                    <IconButton aria-label="share"
+                      onClick={() => handleShareByEmail(event, user, `
                         <html>
                         <head>
                             <style>
@@ -171,11 +174,12 @@ const Events = () => {
                         </body>
                     </html>
                 `)}>
-                        <ShareIcon fontSize="small" />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
+                      <ShareIcon fontSize="small" />
+                    </IconButton>
+                  </CardActions>
+                </Card>
                 </Grid>
+
               ))}
             </Grid>
           </Grid>

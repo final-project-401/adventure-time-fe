@@ -2,6 +2,7 @@
 import React, { useState  } from 'react';
 import axios from 'axios';
 import {  Button, TextField,  Grid } from '@mui/material';
+import { redirect } from 'react-router-dom';
 
 
 
@@ -9,6 +10,7 @@ const EventForm = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
   const [date, setDate] = useState('');
+  const [packingList, setPackingList] = useState('');
   const [travelBuddies, setTravelBuddies] = useState([]);
   const [time, setTime] = useState('');
   const [events, setEvents] = useState([]); // Ensure 'events' is initialized as an empty array
@@ -29,12 +31,17 @@ const EventForm = () => {
       };
       const response = await axios.post('http://localhost:3001/planner', newEvent);
       setEvents([...events, response.data]);
+      const list = {
+        name: packingList,
+        eventId: response.data.id
+      }
+      await axios.post('http://localhost:3001/item', list)
+      window.location.reload(true);
     } catch (error) {
       console.error(error);
     }
 
   };
-  console.log(travelBuddies);
   return (
     <div>
       <Grid container>
@@ -89,6 +96,17 @@ const EventForm = () => {
             inputProps={{
               step: 300, // 5 minute increments
             }}
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            size="small"
+            label="Packing List"
+            variant="standard"
+            value={packingList}
+            onChange={(e) => setPackingList(e.target.value)}
+            margin="normal"
             fullWidth
           />
         </Grid>

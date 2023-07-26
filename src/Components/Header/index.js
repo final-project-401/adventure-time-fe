@@ -24,7 +24,7 @@ const Header = () => {
         <>
 
             <Toolbar className='header-toolbar'>
-            <IconButton
+                <IconButton
                     size="large"
                     edge="start"
                     color="inherit"
@@ -34,15 +34,11 @@ const Header = () => {
                     <MenuIcon sx={{ fontSize: 35 }} />
                 </IconButton>
                 <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-                    Adventure Time
+                    <span className="headerTitle">Adventure Time</span>
                 </Typography>
 
 
-                <div style={{ padding: '10px'}}>
-                <LoginButton />
-                <Profile />
-                <LogoutButton />
-            </div>
+
             </Toolbar>
 
             <Drawer anchor="left" open={open} onClose={handleClose}>
@@ -51,6 +47,11 @@ const Header = () => {
                     onClick={handleClose}
                     onKeyDown={handleClose}
                 >
+                    <div style={{ padding: '10px' }}>
+                        <LoginButton />
+                        <Profile />
+                        <LogoutButton />
+                    </div>
                     <List sx={{ width: 200 }}>
                         <ListItemButton onClick={handleClose}>
                             <Link href="/">
@@ -61,22 +62,6 @@ const Header = () => {
                         <ListItemButton onClick={handleClose}>
                             <Link href="/events">
                                 <Button className="nav-button" color="inherit" sx={{ fontSize: '18px', color: 'black' }}>Events </Button>
-                            </Link>
-                        </ListItemButton>
-
-                        {/* <ListItemButton onClick={handleClose}>
-                            <Link href="/forecast">
-                                <Button className="nav-button" color="inherit" sx={{ fontSize: '18px' }}>Weather </Button>
-                            </Link>
-                        </ListItemButton> */}
-
-                        {/* <Link href="/contact">
-                    <Button className="nav-button" color="inherit" onClick={handleOpen}>Contact us </Button>
-                </Link> */}
-
-                        <ListItemButton onClick={handleClose}>
-                            <Link href="/weather">
-                                <Button className="nav-button" color="inherit" sx={{ fontSize: '18px', color: 'black' }}>Weather </Button>
                             </Link>
                         </ListItemButton>
 

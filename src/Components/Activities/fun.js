@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
+import { Link } from 'react-router-dom';
 
 function Recreations() {
   const [postalCode, setPostalCode] = useState('');
@@ -54,8 +55,11 @@ function Recreations() {
   return (
     <>
       <Hero postcode={postalCode} />
+      <div>
+        <Link style={{textAlign:'start'}} to={'/'}>Home</Link> / Activities
+      </div>
       <div className='container'>
-          <h2>Popular food choices near {' '}
+          <h2>Yelp's highly-rated Bars &amp; Activities near {' '}
           {updateLocation ? (
             <>
               <TextField style={{ paddingLeft: 10 }} variant="standard" size="lg" onChange={handleInputChange} value={locationInput} />
@@ -98,9 +102,7 @@ function Recreations() {
                 <IconButton aria-label="Call" onClick={() => window.open(`tel:${recreation.phone}`)}>
                   <PhoneIphone />
                 </IconButton>
-                <IconButton aria-label="share" style={{ marginLeft: 'auto' }}>
-                  <ShareIcon />
-                </IconButton>
+               
               </CardActions>
                       </Card>
             </Grid>

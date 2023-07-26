@@ -2,19 +2,15 @@
 import Home from './Components/AdventureHome';
 import Header from './Components/Header';
 import About from './Components/About';
-import EventItem from './Components/EventItem';
 import Events from './Components/Events';
 import Contact from './Components/Contact';
-// import Weather from './Components/Weather';
 import Footer from './Components/Footer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Calendar from './Components/Calendar';
-import Weather from './Components/Weather';
 import Restaurants from './Components/Activities/food';
 import Lodging from './Components/Activities/lodging';
 import Recreation from './Components/Activities/fun';
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
 
 function App() {
 
@@ -34,7 +30,6 @@ function App() {
               <Route path="/recreation" element={<Recreation />} />
               <Route path="/events" element={<Events />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/weather" element={<Weather />} />
             </Routes>
           </div>
           <Footer />

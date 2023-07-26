@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
+import { Link } from 'react-router-dom';
 
 function Lodging() {
   const [postalCode, setPostalCode] = useState('');
@@ -54,8 +55,11 @@ function Lodging() {
   return (
     <>
       <Hero postcode={postalCode} />
+      <div>
+        <Link style={{ textAlign: 'start' }} to={'/'}>Home</Link> / Lodging
+      </div>
       <div className='container'>
-          <h2>Yelp's Top Lodging near {' '}
+        <h2>Yelp's highly-rated Lodging near {' '}
           {updateLocation ? (
             <>
               <TextField style={{ paddingLeft: 10 }} variant="standard" size="lg" onChange={handleInputChange} value={locationInput} />
@@ -70,41 +74,39 @@ function Lodging() {
           )}</h2>
         <Grid container spacing={2}>
           {lodging.map((lodging) => {
-           return(
-            <Grid key={lodging.id} item xs={6} sm={4} md={3}>
-              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column'}}>
-                <CardMedia
-                  component="img"
-                  height="194"
-                  image={lodging.img ? lodging.img : 'https://placehold.co/600x400?text=image+not+available'}
-                  alt={lodging.name}
-                />
-              <CardHeader
-                style={{flexGrow:1}}
-                action={lodging.price}
-                title={lodging.name}
-                subheader={`⭐️ ${lodging.rating}`}
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  <p>{lodging.address.join(', ')}</p>
-                  <p>{lodging.displayPhone}</p>
-                </Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <IconButton aria-label="Yelp Store Profile" onClick={() => window.open(lodging.yelpUrl)}>
-                  <StoreMallDirectory />
-                </IconButton>
-                <IconButton aria-label="Call" onClick={() => window.open(`tel:${lodging.phone}`)}>
-                  <PhoneIphone />
-                </IconButton>
-                <IconButton aria-label="share" style={{ marginLeft: 'auto' }}>
-                  <ShareIcon />
-                </IconButton>
-              </CardActions>
-                      </Card>
-            </Grid>
-           )
+            return (
+              <Grid key={lodging.id} item xs={6} sm={4} md={3}>
+                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                  <CardMedia
+                    component="img"
+                    height="194"
+                    image={lodging.img ? lodging.img : 'https://placehold.co/600x400?text=image+not+available'}
+                    alt={lodging.name}
+                  />
+                  <CardHeader
+                    style={{ flexGrow: 1 }}
+                    action={lodging.price}
+                    title={lodging.name}
+                    subheader={`⭐️ ${lodging.rating}`}
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      <p>{lodging.address.join(', ')}</p>
+                      <p>{lodging.displayPhone}</p>
+                    </Typography>
+                  </CardContent>
+                  <CardActions disableSpacing>
+                    <IconButton aria-label="Yelp Store Profile" onClick={() => window.open(lodging.yelpUrl)}>
+                      <StoreMallDirectory />
+                    </IconButton>
+                    <IconButton aria-label="Call" onClick={() => window.open(`tel:${lodging.phone}`)}>
+                      <PhoneIphone />
+                    </IconButton>
+
+                  </CardActions>
+                </Card>
+              </Grid>
+            )
           })}
         </Grid>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../Hero';
 import axios from 'axios';
-import { Check, Edit, PhoneIphone, StoreMallDirectory } from '@mui/icons-material';
+import { ArrowBack, Check, Edit, PhoneIphone, StoreMallDirectory } from '@mui/icons-material';
 import { IconButton, TextField, Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
 import ShareIcon from '@mui/icons-material/Share';
+import { Link } from 'react-router-dom';
 
 function Restaurants() {
   const [postalCode, setPostalCode] = useState('');
@@ -54,8 +55,12 @@ function Restaurants() {
   return (
     <>
       <Hero postcode={postalCode} />
+      <div>
+        <Link style={{textAlign:'start'}} to={'/'}>Home</Link> / Restaurants
+      </div>
       <div className='container'>
-          <h2>Popular restaurants near {' '}
+       
+          <h2>Yelp's highly-rated restaurants near {' '}
           {updateLocation ? (
             <>
               <TextField style={{ paddingLeft: 10 }} variant="standard" size="lg" onChange={handleInputChange} value={locationInput} />
@@ -98,9 +103,7 @@ function Restaurants() {
                 <IconButton aria-label="Call" onClick={() => window.open(`tel:${restaurant.phone}`)}>
                   <PhoneIphone />
                 </IconButton>
-                <IconButton aria-label="share" style={{ marginLeft: 'auto' }}>
-                  <ShareIcon />
-                </IconButton>
+               
               </CardActions>
                       </Card>
             </Grid>
