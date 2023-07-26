@@ -15,7 +15,7 @@
 //   useEffect(() => {
 //     const getEvents = async () => {
 //       try {
-//         let url = 'http://localhost:3001/planner';
+//         let url = '${process.env.REACT_APP_SERVER}/planner';
 //         let eventData = await axios.get(url);
 //         setRes(eventData);
 //       } catch (error) {
@@ -29,7 +29,7 @@
 //   useEffect(() => {
 //     const getWeather = async () => {
 //       try {
-//         let url = 'http://localhost:3001/forecast'
+//         let url = '${process.env.REACT_APP_SERVER}/forecast'
 //         let weatherData = await axios.get(url);
 //         setWeatherRes(weatherData);
 //       } catch (error) {

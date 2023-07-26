@@ -30,7 +30,7 @@ const Events = () => {
   console.log(user);
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/planner');
+      const response = await axios.get(`${process.env.REACT_APP_SERVER}/planner`);
       setEvents(response.data);
       setEventAdded(false)
     } catch (error) {
@@ -65,7 +65,7 @@ const Events = () => {
 
   const handleDelete = async (eventId) => {
     try {
-      await axios.delete(`http://localhost:3001/planner/${eventId}`);
+      await axios.delete(`${process.env.REACT_APP_SERVER}/planner/${eventId}`);
       setEvents(events.filter((event) => event.id !== eventId));
     } catch (error) {
       console.error(error);
@@ -74,7 +74,7 @@ const Events = () => {
 
   const handleShareByEmail = async (event, user, text) => {
     try {
-      await axios.get('http://localhost:3001/email', {
+      await axios.get(`${process.env.REACT_APP_SERVER}/email`, {
         params: {
           receiver: event.travelBuddies,
           sender: user.email,

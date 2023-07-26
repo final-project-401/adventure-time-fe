@@ -2,7 +2,6 @@
 import React, { useState  } from 'react';
 import axios from 'axios';
 import {  Button, TextField,  Grid } from '@mui/material';
-import { redirect } from 'react-router-dom';
 
 
 
@@ -29,13 +28,13 @@ const EventForm = () => {
         time,
         userId: 1,
       };
-      const response = await axios.post('http://localhost:3001/planner', newEvent);
+      const response = await axios.post(`${process.env.REACT_APP_SERVER}/planner`, newEvent);
       setEvents([...events, response.data]);
       const list = {
         name: packingList,
         eventId: response.data.id
       }
-      await axios.post('http://localhost:3001/item', list)
+      await axios.post(`${process.env.REACT_APP_SERVER}/item`, list)
       window.location.reload(true);
     } catch (error) {
       console.error(error);
