@@ -22,31 +22,31 @@ const teamMembersContent = [
         name: 'Kenya Womack',
         imageSrc: Kenya,
         information: 'I have a mosaic background with many different qualifications and experiences. Currently I am a licensed real estate broker in Alabama. I am in school at Code Fellows training to become a Full Stack Software Engineer.',
-        githubLink: "https://github.com/Coff23",
-        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
+        githubLink: "https://github.com/KenyaWomack",
+        linkedinLink: "https://www.linkedin.com/in/kenya-womack-89473b16b/"
     },
     {
         name: 'Justin Mathieu',
         imageSrc: Justin,
         information: 'Excited to begin a career in software development and build awesome things, while continuing to learn as much as possible!',
-        githubLink: "https://github.com/Coff23",
-        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
+        githubLink: "https://github.com/Justin-Mathieu",
+        linkedinLink: "https://www.linkedin.com/in/justin-mathieu-1b8778230/"
 
     },
     {
         name: 'Tricia Sawyer',
         imageSrc: Tricia,
         information: 'Full Stack Software Developer, furthering my knowledge through my education at DeltaV Code School.',
-        githubLink: "https://github.com/Coff23",
-        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
+        githubLink: "https://github.com/triciasawyer",
+        linkedinLink: "https://www.linkedin.com/in/tricia-sawyer-9a3916268/"
 
     },
     {
         name: 'Tim Maupin',
         imageSrc: Tim,
         information: '',
-        githubLink: "https://github.com/Coff23",
-        linkedinLink: "https://www.linkedin.com/in/joshuacoffey23/"
+        githubLink: "https://github.com/TimM32",
+        linkedinLink: "https://www.linkedin.com/in/"
 
     },
     {
