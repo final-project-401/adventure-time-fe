@@ -1,22 +1,26 @@
-import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
+// import logo from './logo.svg';
 import Home from './Components/AdventureHome';
+import Header from './Components/Header';
 import About from './Components/About';
 import Events from './Components/Events';
+import Footer from './Components/Footer';
 import Restaurants from './Components/Activities/food';
 import Lodging from './Components/Activities/lodging';
 import Recreation from './Components/Activities/fun';
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+
 function App() {
+
   return (
     <>
-      <Router>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '100vh' }}>
+    
+      <BrowserRouter>
+
+        <div style={{display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight: '100vh'}}>
           <Header />
-          <div style={{ flexGrow: 1 }}>
+          <div style={{flexGrow:1}}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
@@ -28,9 +32,9 @@ function App() {
           </div>
           <Footer />
         </div>
-      </Router>
+      </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
