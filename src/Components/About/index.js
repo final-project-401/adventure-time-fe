@@ -46,7 +46,7 @@ const teamMembersContent = [
         imageSrc: Tim,
         information: '',
         githubLink: "https://github.com/TimM32",
-        linkedinLink: "https://www.linkedin.com/in/"
+        linkedinLink: "https://www.linkedin.com/in/tim-maupin-4b301078/"
 
     },
     {

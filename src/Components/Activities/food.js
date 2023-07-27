@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Hero from '../Hero';
 import axios from 'axios';
-import { ArrowBack, Check, Edit, PhoneIphone, StoreMallDirectory } from '@mui/icons-material';
+import { Check, Edit, PhoneIphone, StoreMallDirectory } from '@mui/icons-material';
 import { IconButton, TextField, Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -9,7 +9,6 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import ShareIcon from '@mui/icons-material/Share';
 import { Link } from 'react-router-dom';
 
 function Restaurants() {

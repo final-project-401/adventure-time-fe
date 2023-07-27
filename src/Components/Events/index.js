@@ -1,5 +1,5 @@
 // events.js (Events component)
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
   Card,
@@ -13,8 +13,7 @@ import {
 import EventForm from '../EventForm';
 import FullCalendar from '@fullcalendar/react';
 import listPlugin from '@fullcalendar/list'
-import { DeleteForever, Email } from '@mui/icons-material';
-import Hero from '../Hero';
+import { DeleteForever } from '@mui/icons-material';
 import { useAuth0 } from '@auth0/auth0-react';
 import ShareIcon from '@mui/icons-material/Share';
 
@@ -25,7 +24,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [calEvent, setCalEvent] = useState([]);
   const [eventAdded, setEventAdded] = useState(false);
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
 
   console.log(user);
   const fetchEvents = async () => {
@@ -36,15 +35,6 @@ const Events = () => {
     } catch (error) {
       console.error(error);
     }
-  };
-
-  const formatDate = (date) => {
-    date = date.toString();
-    let year = date.split('').splice(0, 4).join('');
-    let month = date.split('').splice(5, 2).join('');
-    let day = date.split('').slice(-2).join('');
-
-    return `${year}-${month}-${day}`;
   };
 
   useEffect(() => {
@@ -112,7 +102,6 @@ const Events = () => {
               {events.map((event) => (
                 <Grid item xs={12} sm={6} md={4} >
                 <Card className='eCard' >
-                {/* sx={{ height: '100%', display: 'flex', flexDirection: 'column', Width:300 }} */}
                   <CardHeader
                     title={event.name}
                     className='cardHeader'

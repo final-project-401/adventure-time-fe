@@ -5,7 +5,6 @@ import './styling.css';
 import LoginButton from '../Auth/loginButton';
 import LogoutButton from '../Auth/logoutButton';
 import Profile from '../Auth/Profile';
-import { flexibleCompare } from '@fullcalendar/core/internal';
 
 
 const Header = () => {

@@ -3,7 +3,6 @@ import Home from './Components/AdventureHome';
 import Header from './Components/Header';
 import About from './Components/About';
 import Events from './Components/Events';
-import Contact from './Components/Contact';
 import Footer from './Components/Footer';
 import Restaurants from './Components/Activities/food';
 import Lodging from './Components/Activities/lodging';
@@ -29,7 +28,6 @@ function App() {
               <Route path="/lodging" element={<Lodging />} />
               <Route path="/recreation" element={<Recreation />} />
               <Route path="/events" element={<Events />} />
-              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
           <Footer />
