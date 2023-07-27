@@ -75,6 +75,8 @@ function Weather({ postcode }) {
     return { dayOfWeek, todayM, todayD, todayY };
   };
 
+  console.log(todaysData);
+
   console.log('location>>>', location);
 
   return (
