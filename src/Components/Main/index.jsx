@@ -11,10 +11,8 @@ import './style.css';
 import { fetchLocation, updatePostalCode } from './actions';
 
 export default function Main() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const postalCode = useSelector((state) => state.locationReducer.postalCode);
-  const requestingLocation = useSelector((state) => state.locationReducer.requestingLocation);
 
   const [updateLocation, setUpdateLocation] = useState(false);
   const [locationInput, setLocationInput] = useState('');

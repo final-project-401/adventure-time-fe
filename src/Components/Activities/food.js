@@ -21,7 +21,17 @@ function Restaurants() {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('p');
     setPostalCode(code || '');
-  }, []);
+
+    const getRestaurants = async () => {
+      if (postalCode) {
+        let url = `${process.env.REACT_APP_SERVER}/food?location=${postalCode}`;
+        let dataFromAPI = await axios.get(url);
+        setRestaurants(dataFromAPI.data);
+      }
+    };
+
+    getRestaurants()
+  }, [postalCode]);
 
   const updatePostalCode = () => {
     setUpdateLocation(true);
@@ -36,19 +46,7 @@ function Restaurants() {
     setLocationInput(event.target.value);
   };
 
-  const getRestaurants = async () => {
-    if (postalCode) {
-      let url = `${process.env.REACT_APP_SERVER}/food?location=${postalCode}`;
-      let dataFromAPI = await axios.get(url);
-      setRestaurants(dataFromAPI.data);
-    }
-  };
-
-
-
-  useEffect(() => {
-    getRestaurants();
-  }, [postalCode]); // Call getRestaurants() when postalCode changes
+  
 
 
   return (

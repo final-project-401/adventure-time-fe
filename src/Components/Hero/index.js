@@ -1,6 +1,5 @@
 import React from 'react'
 import StripWeather from '../Weather/stripWidget';
-import Header from '../Header';
 
 export default function Hero({postcode}) {
   

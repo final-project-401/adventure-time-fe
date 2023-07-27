@@ -21,7 +21,17 @@ function Lodging() {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('p');
     setPostalCode(code || '');
-  }, []);
+
+    const getLodging = async () => {
+      if (postalCode) {
+        let url = `${process.env.REACT_APP_SERVER}/rest?location=${postalCode}`;
+        let dataFromAPI = await axios.get(url);
+        setLodging(dataFromAPI.data);
+      }
+    };
+
+    getLodging();
+  }, [postalCode]);
 
   const updatePostalCode = () => {
     setUpdateLocation(true);
@@ -35,20 +45,6 @@ function Lodging() {
   const handleInputChange = (event) => {
     setLocationInput(event.target.value);
   };
-
-  const getLodging = async () => {
-    if (postalCode) {
-      let url = `${process.env.REACT_APP_SERVER}/rest?location=${postalCode}`;
-      let dataFromAPI = await axios.get(url);
-      setLodging(dataFromAPI.data);
-    }
-  };
-
-
-
-  useEffect(() => {
-    getLodging();
-  }, [postalCode]); // Call getLodging() when postalCode changes
 
 
   return (

@@ -21,7 +21,17 @@ function Recreations() {
     const searchParams = new URLSearchParams(window.location.search);
     const code = searchParams.get('p');
     setPostalCode(code || '');
-  }, []);
+
+    const getRecreations = async () => {
+      if (postalCode) {
+        let url = `${process.env.REACT_APP_SERVER}/play?location=${postalCode}`;
+        let dataFromAPI = await axios.get(url);
+        setRecreations(dataFromAPI.data);
+      }
+    };
+
+    getRecreations();
+  }, [postalCode]);
 
   const updatePostalCode = () => {
     setUpdateLocation(true);
@@ -35,21 +45,6 @@ function Recreations() {
   const handleInputChange = (event) => {
     setLocationInput(event.target.value);
   };
-
-  const getRecreations = async () => {
-    if (postalCode) {
-      let url = `${process.env.REACT_APP_SERVER}/play?location=${postalCode}`;
-      let dataFromAPI = await axios.get(url);
-      setRecreations(dataFromAPI.data);
-    }
-  };
-
-
-
-  useEffect(() => {
-    getRecreations();
-  }, [postalCode]); // Call getRecreations() when postalCode changes
-
 
   return (
     <>

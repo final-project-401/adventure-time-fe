@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Grid from '@mui/material/Grid';
-import { Container, IconButton, } from '@mui/material';
+import { Container } from '@mui/material';
 import { getWeatherIcon } from './getWeatherIcon';
 
 import './stripWidget.css';
-import { Edit } from '@mui/icons-material';
 
 function Weather({ postcode }) {
-  // const [weatherRes, setWeatherRes] = useState([]);
   const [location, setLocation] = useState('');
   const [forecast, setForecast] = useState([]);
   const [todaysData, setTodaysData] = useState([]);
-  // const [postalCode, setPostalCode] = useState('');
-
-  // postcode = 98032;
 
   console.log('postcode params>>>', postcode);
 
@@ -41,6 +36,7 @@ function Weather({ postcode }) {
 
     if (postcode) {
       getWeather();
+      
     }
 
   }, [postcode]);
@@ -79,7 +75,8 @@ function Weather({ postcode }) {
     return { dayOfWeek, todayM, todayD, todayY };
   };
 
-  // console.log('postalCode>>>', weatherRes);
+  console.log('location>>>', location);
+
 
 
 
