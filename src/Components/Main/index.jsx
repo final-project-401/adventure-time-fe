@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Button, IconButton, TextField } from '@mui/material';
 import { Check, Edit } from '@mui/icons-material';
 import { NearMe } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
 import ActivityCategories from '../Activities/categories';
 import Hero from '../Hero';
 import './style.css';

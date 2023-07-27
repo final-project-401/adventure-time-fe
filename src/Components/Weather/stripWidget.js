@@ -77,11 +77,6 @@ function Weather({ postcode }) {
 
   console.log('location>>>', location);
 
-
-
-
-  const date = todaysData ? formatDate(todaysData.date) : null;
-
   return (
     <>
         <Container className="forecastWeather" key={'forecast'}>
